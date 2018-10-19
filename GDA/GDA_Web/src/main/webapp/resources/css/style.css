@@ -1,0 +1,147 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+
+html {
+	height: 100%;
+	box-sizing: border-box;
+}
+
+body {
+	background: skyblue;
+	position: relative;
+  	margin: 0;
+  	padding-bottom: 6rem;
+  	min-height: 100%;
+}
+
+/*-----------------------------------------------------------------------------*/
+/* 								Partie HEADER							       */
+/*-----------------------------------------------------------------------------*/
+#LogoTitre {						/* Titre et Logo en Flex*/
+  list-style: none;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background: skyblue;
+}
+
+#logo, #Titre0						/* Police, marge et alignement*/
+{
+	color: #408080;
+	font-style: italic;
+	text-align: center;
+	vertical-align: baseline;
+	padding: 3px;
+}
+
+.navigation {						/* personalisation onglet de navigation en Flex*/
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #7bbdbd;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.navigation a, .navigation label {						/* personalisation liens */
+  text-decoration: none;
+  display: block;
+  padding: 0.8em;
+  color: white;
+  font-size: 22px;
+}
+
+.navigation a:hover {				/* Agrandissement bouton au survol*/
+  color: #122525;
+}
+.navigation ul {			 			/*recentre */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.navigation li {						/* on place les liens du menu horizontalement */
+    display: inline-block;
+	background: #408080;
+}
+.navigation ul li {						/* sous menu verticaux */
+    display: inherit;
+}
+
+.navigation ul {						/*les menus compl�tement cach� sur la gauche */
+    position: absolute;
+    left: -999em;
+    text-align: left;
+    z-index: 1000;
+}
+.navigation li:hover ul {				/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+}
+
+#navhead {
+	background: #408080;
+ 	overflow: auto;
+}
+
+#titreNav {
+	display: inline-block;
+	color: white;
+	font-size: 30px;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+#lienNav {
+	display: inline-block;
+	float: right;
+}
+
+/*-----------------------------------------------------------------------------*/
+/*                              	Content                                    */
+/*-----------------------------------------------------------------------------*/
+#main {
+	max-with:960px;
+	margin:auto;
+}
+
+#content {
+	margin: 10px 30px 10px 30px;
+}
+
+/*-----------------------------------------------------------------------------*/
+/*                              	Footer                                     */
+/*-----------------------------------------------------------------------------*/
+footer {
+	position: absolute;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+    width: 100%;
+    background: #408080;
+    padding: 15px 0px 15px 0px;
+    color: white;
+    
+    clear: both;
+    margin-top: -3em;
+}
+
+#footer {
+	margin-left: 30px;
+}
+

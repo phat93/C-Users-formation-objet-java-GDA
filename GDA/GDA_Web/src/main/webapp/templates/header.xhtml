@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="fr"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+	
+	<body>
+		<ui:composition> 															
+<!-- 			<div id="LogoTitre"> -->
+<!-- 				<img src="resources/img/logo.PNG" alt="Logo" id="logo"  -->
+<!-- 				title="logo Assos" />														 -->
+<!-- 				<h1 id="Titre0">Give Donation Association</h1> -->
+<!-- 			</div> -->
+<!-- 			<nav id="navhead"> -->
+<!-- 				<section id="titreNav"> -->
+<!-- 					<label>GDA</label> -->
+<!-- 				</section> -->
+<!-- 				<section id="lienNav"> -->
+<!-- 					<ul class="navigation"> -->
+<!-- 						<li><a href="index.jsf">Acceuil</a></li> -->
+<!-- 					  	<li><a href="associations.jsf">Faire un don</a></li> -->
+<!-- 					  	<li><a href="catalogue.jsf">Nous rejoindre</a></li> -->
+<!-- 					  	<li><a href="panier.jsf">Contact</a></li> -->
+<!-- 					  	<li><a href="#">Connexion</a> -->
+<!-- 					  		<ul> -->
+<!-- 								<li><a href="#">Donateur</a></li> -->
+<!-- 								<li><a href="#">Association</a></li> -->
+<!-- 							</ul> -->
+<!-- 					  	</li> -->
+<!-- 					</ul> -->
+<!-- 				</section> -->
+<!-- 			</nav> -->
+
+	    <h:body style="padding: 60px;">
+	        <b:navBar brand="GDA" brandHref="#" position="top" sticky="true" 
+	        style="background:#61afaf;">
+	            <b:navbarLinks pull="right">
+	                <b:navLink value="Accueil" href="index.jsf" style="color:#FFFFFF;"></b:navLink>
+	                <b:navLink value="Faire un don" href="associations.jsf" style="color:#FFFFFF;"></b:navLink>
+	                <b:navLink value="Nous rejoindre" href="catalogue.jsf" style="color:#FFFFFF;"></b:navLink>
+	                <b:navLink value="Contact" href="panier.jsf" style="color:#FFFFFF;"></b:navLink>
+	                <b:dropMenu value="Connexion" iconAwesome="fa-unlock-alt" style="color:#FFFFFF;">
+				      <b:navLink value="Donateur" href="login.jsf"></b:navLink>
+				      <b:navLink value="Association" href="#"></b:navLink>
+				    </b:dropMenu>
+	            </b:navbarLinks>
+	        </b:navBar>
+        </h:body>
+		</ui:composition>
+	</body>
+	
+</html>

@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>GDA_Web</artifactId>
+  <packaging>war</packaging>
+  <parent>
+    <groupId>fr.afcepf.al32</groupId>
+  <artifactId>GDA</artifactId>
+  <version>1.0</version>
+  </parent>
+  <properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<jsf.version>2.2.8</jsf.version>
+		<spring.version>4.3.3.RELEASE</spring.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>fr.afcepf.al32</groupId>
+			<artifactId>GDA_Business</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>${jsf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>${jsf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.bootsfaces</groupId>
+		    <artifactId>bootsfaces</artifactId>
+		    <version>1.3.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.primefaces</groupId>
+		    <artifactId>primefaces</artifactId>
+		    <version>6.2</version>
+		</dependency>
+	</dependencies>
+</project>

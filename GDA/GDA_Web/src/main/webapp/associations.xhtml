@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="fr"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:body>
+      <ui:composition template="/templates/common.xhtml">
+      	
+      	<ui:define name="title">Associations</ui:define>
+      	
+      	<ui:define name="css">
+      		<h:outputStylesheet name="css/style.css" />
+      		<h:outputStylesheet name="css/associations.css" />
+      		
+		</ui:define>
+		
+        <ui:define name="content">
+        
+			<div id="navside">
+				<div id="filtre">
+					<div class="titreFiltre">
+						Filtrer par :
+					</div>
+					<h5>Type de besoin</h5>
+					<label class="containerFiltre">
+					  <input type="checkbox"/>Alimentaire
+					</label>
+					<label class="containerFiltre">
+					  <input type="checkbox"/>Educative
+					</label>
+					<label class="containerFiltre">
+					  <input type="checkbox"/>Vestimentaire
+					</label>
+				<hr />
+					<h5>Prix</h5>
+					<label class="containerFiltre">
+					  <input type="radio" name="prix" />0 - 10 €
+					</label>
+					<label class="containerFiltre">
+					  <input type="radio" name="prix"/>11 - 20 €
+					</label>
+					<label class="containerFiltre">
+					  <input type="radio" name="prix"/>21 - 30 €
+					</label>
+				<hr />
+					<h5>Pays</h5>
+					<div class="containerFiltre" style="width:200px;">
+					  <select>
+					    <option value="0">Selectionner un pays</option>
+					    <option value="1">France</option>
+					    <option value="2">Madagascar</option>
+					    <option value="2">Maroc</option>
+					  </select>
+					</div>
+				<hr />
+				<input type="button" value="Valider"/>
+				</div>
+			</div>        
+        	
+        	<h2>Associations</h2>
+        	
+            <div id="containerAssociation">
+            
+            	<div class="elementAssociation">
+	            	<div class="transbox">
+	            		<div>
+	            			<label>Nom Association</label>
+	            		</div><br/>
+	            		<div>
+	            			Pays cible : ...
+	            		</div><br/>
+	            		<div>
+	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
+	            		</div><br/>
+	            	</div>
+	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
+            	</div>
+            	
+            	<div class="elementAssociation">
+	            	<div class="transbox">
+	            		<div>
+	            			<label>Nom Association</label>
+	            		</div><br/>
+	            		<div>
+	            			Pays cible : ...
+	            		</div><br/>
+	            		<div>
+	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
+	            		</div><br/>
+	            	</div>
+	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
+            	</div>
+            	
+            	<div class="elementAssociation">
+	            	<div class="transbox">
+	            		<div>
+	            			<label>Nom Association</label>
+	            		</div><br/>
+	            		<div>
+	            			Pays cible : ...
+	            		</div><br/>
+	            		<div>
+	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
+	            		</div><br/>
+	            	</div>
+	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
+            	</div>
+            	
+            	<div class="elementAssociation">
+	            	<div class="transbox">
+	            		<div>
+	            			<label>Nom Association</label>
+	            		</div><br/>
+	            		<div>
+	            			Pays cible : ...
+	            		</div><br/>
+	            		<div>
+	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
+	            		</div><br/>
+	            	</div>
+	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
+            	</div>
+            	
+            	<div class="elementAssociation">
+	            	<div class="transbox">
+	            		<div>
+	            			<label>Nom Association</label>
+	            		</div><br/>
+	            		<div>
+	            			Pays cible : ...
+	            		</div><br/>
+	            		<div>
+	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
+	            		</div><br/>
+	            	</div>
+	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
+            	</div>
+            	
+            	<div class="elementAssociation">
+	            	<div class="transbox">
+	            		<div>
+	            			<label>Nom Association</label>
+	            		</div><br/>
+	            		<div>
+	            			Pays cible : ...
+	            		</div><br/>
+	            		<div>
+	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
+	            		</div><br/>
+	            	</div>
+<!-- 	            	<button class="button" type="button" value="Faire un Don" /> -->
+	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
+            	</div>
+            
+            </div>
+
+<!--        		<h:form id="form"> pour plus de détail : https://www.primefaces.org/showcase/ui/data/dataGrid.xhtml -->
+<!-- 			    <p:dataGrid var="asso" value="#{MB.listeDesAssociations}" columns="3" layout="grid" rows="12"> value à remplir -->
+			 
+<!-- 			        <f:facet name="header"> -->
+<!-- 			            NOS ASSOCIATIONS PARTENAIRES -->
+<!-- 			        </f:facet> -->
+			 
+<!-- 			        <p:panel header="#{asso.blabla}" style="text-align:center"> header à remplir -->
+<!-- 			            <h:panelGrid columns="1" style="width:100%"> -->
+<!-- 			                <p:graphicImage name="#{asso.ImageAsso}"/> à remplir -->
+			 
+<!-- 			                <h:outputText value="#{car.year}" /> à remplir -->
+			 
+<!-- 			                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail"> -->
+<!-- 			                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" /> -->
+<!-- 			                    <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" /> -->
+<!-- 			                </p:commandLink> -->
+<!-- 			            </h:panelGrid> -->
+<!-- 			        </p:panel> -->
+			 
+<!-- 			    </p:dataGrid> -->
+<!-- 			</h:form> -->
+       
+        </ui:define>
+        
+      </ui:composition>
+   </h:body>	
+
+</html>

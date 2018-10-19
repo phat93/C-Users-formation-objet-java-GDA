@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="GDA_Data" transaction-type="RESOURCE_LOCAL">
+		<class>fr.afcepf.al32.entity.Administrateur</class>
+		<class>fr.afcepf.al32.entity.Adresse</class>
+		<class>fr.afcepf.al32.entity.Aliment</class>
+		<class>fr.afcepf.al32.entity.Association</class>
+		<class>fr.afcepf.al32.entity.Connexion</class>
+		<class>fr.afcepf.al32.entity.Don</class>
+		<class>fr.afcepf.al32.entity.Donateur</class>
+		<class>fr.afcepf.al32.entity.FournitureScolaire</class>
+		<class>fr.afcepf.al32.entity.NatureAliment</class>
+		<class>fr.afcepf.al32.entity.NatureVetement</class>
+		<class>fr.afcepf.al32.entity.NatureFourniture</class>
+		<class>fr.afcepf.al32.entity.Pack</class>
+		<class>fr.afcepf.al32.entity.PackAssociation</class>
+		<class>fr.afcepf.al32.entity.PackDonateur</class>
+		<class>fr.afcepf.al32.entity.PaysAide</class>
+		<class>fr.afcepf.al32.entity.Personne</class>
+		<class>fr.afcepf.al32.entity.Produit</class>
+		<class>fr.afcepf.al32.entity.TypeProduit</class>
+		<class>fr.afcepf.al32.entity.Vetement</class>
+		<properties>
+			<property name="hibernate.show_sql" value="true"/>
+		</properties>
+	
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,79 @@
+
+/*-----------------------------------------------------------------------------*/
+/*                              Association                                    -*/
+/*-----------------------------------------------------------------------------*/
+#navside {
+	float:left;
+	width:250px;
+}
+
+#filtre {
+	margin: 0px 30px 0px 0px;
+	border: 1px solid black;
+}
+.titreFiltre {
+	font-size: 20px;
+	text-align: center;
+	background-color: #7bbdbd;
+	border-bottom: 1px solid black;
+}
+h5 {
+	position: relative;
+    padding-left: 20px;
+}
+.containerFiltre {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#containerAssociation {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+
+.elementAssociation {
+	border: 2px solid black;
+	border-radius: 10px;
+/* 	background: #408080; */
+	background-image: url("https://image.shutterstock.com/z/stock-vector-piggy-bank-icon-649552489.jpg");
+	background-size: 250px 210px;
+	color: white;
+	padding: 5px;
+  	width: 250px;
+  	height: 210px;
+  	margin: 10px;
+}
+
+.transbox {
+
+  margin: 5px;
+  background-color: black;
+  border: 1px solid black;
+  opacity: 0.5;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+.button {
+    background-color: #4CAF50;
+    opacity: 0.7;
+    border: none;
+    color: white;
+    padding: 8px 22px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
