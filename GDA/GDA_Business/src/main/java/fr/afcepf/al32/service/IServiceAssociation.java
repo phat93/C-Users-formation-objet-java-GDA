@@ -14,6 +14,7 @@ public interface IServiceAssociation  {
 	List<Personne> rechercheAssociationTypePt( Long param);
 	List<Personne> rechercheAssociationTypePays(Long param);
 	List<Personne> rechercheAssociationNouvelle();
+	List<Personne> rechercheAssociationActive();
 	List<Personne> rechercheAssociationPxPack(double valParam, double valParam1);
 	Personne rechercherParConnexion(String login, String password);
 	public void accepterAssociation(Long num, Date dateAcc);

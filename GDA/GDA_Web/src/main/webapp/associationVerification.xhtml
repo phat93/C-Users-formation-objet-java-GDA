@@ -4,7 +4,8 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	
 	
 	<h:body>
@@ -14,11 +15,29 @@
         
         <ui:define name="content">
         	<h2>Associations</h2>
+        	
         	<h3>Nouvelles demandes</h3>				
-            ...
+            <p:repeat var="a" value="#{associationBean.associationsNouvelles">
+            	<p:panel header="#{a.raisonSociale}" style="margin-bottom:20px">
+        			<h:panelGrid columns="2" cellpadding="10">
+		            	<p:graphicImage name="./resources/img/logo.PNG" />
+		            	<h:outputText value="#{a.nom}" />
+		            	<h:outputText value="#{a.prenom}" />
+		        	</h:panelGrid>
+    			</p:panel>
+            </p:repeat>
             <br/>
+            
             <h3>Liste des partenaires</h3>
-            ...
+            <p:repeat var="a" value="#{associationBean.associationsActives">
+            	<p:panel header="#{a.raisonSociale}" style="margin-bottom:20px">
+        			<h:panelGrid columns="2" cellpadding="10">
+		            	<p:graphicImage name="./resources/img/logo.PNG" />
+		            	<h:outputText value="#{a.nom}" />
+		            	<h:outputText value="#{a.prenom}" />
+		        	</h:panelGrid>
+    			</p:panel>
+            </p:repeat>
         </ui:define>
         
       </ui:composition>

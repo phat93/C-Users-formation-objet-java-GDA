@@ -83,6 +83,11 @@ public class ServiceAssociation implements IServiceAssociation {
 		a.setDateFin(dateFin);
 		 personneDao.save(a);
 		
+	}
+
+	@Override
+	public List<Personne> rechercheAssociationActive() {
+		return personneDao.findAll("AssociationActive");
 	}	
 
 }
