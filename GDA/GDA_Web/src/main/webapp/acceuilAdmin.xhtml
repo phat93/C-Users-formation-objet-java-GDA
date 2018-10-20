@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="fr"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	
+	<h:body>
+      <ui:composition template="/templates/commonAdministrateur.xhtml">
+      	
+      	<ui:define name="title">Accueil Administrateur</ui:define>
+        
+        <ui:define name="content">
+        	<h2>Bonjour #{connexionBean.utilisateur.prenom} #{connexionBean.utilisateur.nom}</h2>
+        	<h3>Association</h3>				
+            <output>Nombre d'association actives : ...</output>
+            <output>Nombre de demande de partenariat  : ...</output>
+            <br/>
+            <h3>Donateur</h3>				
+            <output>Nombre de donateurs inscrits : ...</output>
+            <output>Nombre de don effectués  : ...</output>
+        </ui:define>
+        
+      </ui:composition>
+   </h:body>	
+
+</html>

@@ -26,18 +26,18 @@
 		        <b:container>
 		            <h:form styleClass="form-signin" prependId="false">
 		                <h2 class="form-signin-heading">Entrez vos identifiants</h2>
-		                <b:inputText id="login" placeholder="Identifiant" value="#{connexionBean.login}">
+		                <b:inputText id="login" placeholder="Identifiant" value="#{connexionBean.login}" required="true">    
 		                    <f:facet name="prepend">
 		                        <b:icon name="user" />
 		                    </f:facet>
 		                </b:inputText>
-		                <b:inputText id="password" placeholder="Mot de passe" type="password" value="#{connexionBean.password}">
+		                <b:inputText id="password" placeholder="Mot de passe" type="password" value="#{connexionBean.password}" required="true">
 		                    <f:facet name="prepend">
 		                        <b:iconAwesome name="key" />
 		                    </f:facet>
 		                </b:inputText>
 		                <b:selectBooleanCheckbox value="true" caption="se souvenir de moi"/>
-		                <b:commandButton look="primary btn-block" value="Connexion" action="#{connexionBean.login('admin')}" icon="log-in" size="lg"/>
+		                <b:commandButton look="primary btn-block" value="Connexion" action="#{connexionBean.login}" icon="log-in" size="lg"/>
 		            </h:form>
 		        </b:container>
 		    </h:body>

@@ -44,6 +44,10 @@ body {
 	padding: 3px;
 }
 
+.navbar-brand {
+	color:white;
+}
+
 .navigation {						/* personalisation onglet de navigation en Flex*/
   list-style: none;
   padding: 0;
@@ -133,12 +137,20 @@ footer {
   	bottom: 0;
   	left: 0;
     width: 100%;
-    background: #408080;
+    background: #61afaf;
     padding: 15px 0px 15px 0px;
     color: white;
     
     clear: both;
     margin-top: -3em;
+}
+
+#footerAdministrateur {
+	background: #ff8000;
+}
+
+#footerAssociation {
+	background: #07c05a;
 }
 
 #footer {
