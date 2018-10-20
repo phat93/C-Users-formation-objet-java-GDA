@@ -54,33 +54,21 @@
 <!--         	</div> -->
 
 
-        	    <p:dataTable var="c" value="#{listePacksAssociationBean.packs}">
+      
+
+			<p:dataTable var="c" value="#{listeAssociationBean.association}">
 			    <p:column headerText="Id">
 			        <h:outputText value="#{c.id}" />
 			    </p:column>
 			 
-			    <p:column headerText="Libellé">
-			        <h:outputText value="#{c.libelle}" />
+			    <p:column headerText="nom">
+			        <h:outputText value="#{c.raisonSociale}" />
 			    </p:column>
 			 
-			    <p:column headerText="Date Ajout">
-			        <h:outputText value="#{c.dateAjout}" />
+			    <p:column headerText="mail">
+			        <h:outputText value="#{c.email}" />
 			    </p:column>
    			</p:dataTable>
-
-<!-- 			<p:dataTable var="c" value="#{listePacksAssociationBean.assoc}"> -->
-<!-- 			    <p:column headerText="Id"> -->
-<!-- 			        <h:outputText value="#{c.id}" /> -->
-<!-- 			    </p:column> -->
-			 
-<!-- 			    <p:column headerText="nom"> -->
-<!-- 			        <h:outputText value="#{c.raisonSociale}" /> -->
-<!-- 			    </p:column> -->
-			 
-<!-- 			    <p:column headerText="mail"> -->
-<!-- 			        <h:outputText value="#{c.email}" /> -->
-<!-- 			    </p:column> -->
-<!--    			</p:dataTable> -->
 		     
 	       </ui:define>      
 	      </ui:composition>

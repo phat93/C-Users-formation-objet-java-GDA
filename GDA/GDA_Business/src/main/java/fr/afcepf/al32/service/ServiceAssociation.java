@@ -47,7 +47,6 @@ public class ServiceAssociation implements IServiceAssociation {
 
 	@Override
 	public List<Personne> rechercheAssociationNouvelle() {
-		System.out.println("je suis ds recher");
 		return personneDao.findAll("AssociationNouvelle");
 	}
 	@Override
@@ -85,5 +84,11 @@ public class ServiceAssociation implements IServiceAssociation {
 		 personneDao.save(a);
 		
 	}	
+	
+	@Override
+	public List<Personne> rechercheAssociationValidee() {
+		return personneDao.findAll("AssociationValidee");
+	}
 
 }
+

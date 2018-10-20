@@ -3,8 +3,6 @@ package fr.afcepf.al32.web;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 import fr.afcepf.al32.entity.Administrateur;
 import fr.afcepf.al32.entity.Association;
@@ -41,25 +39,24 @@ public class ConnexionBean
 		 
 		if(p != null)
 		{
-			HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true); 
 			if(p instanceof Donateur)
 			{
 				
 				utilisateur = (Donateur) p;
-				suite="acceuilDonateur";
+				suite="accueilDonateur";
 				
 			}
 			else if(p instanceof Association)
 			{
 				utilisateur = (Association) p;
-				suite="acceuilAssociation";
+				suite="accueilAssociation";
 			}
 			else
 			{
 				utilisateur = (Administrateur) p;
-				suite="acceuilAdmin";
+				suite="accueilAdmin";
 			}
-			session.setAttribute("utilisateur", utilisateur);
+			
 		}
 		else
 		{

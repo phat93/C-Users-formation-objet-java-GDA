@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui" >	    
+
+<head></head>
+<body>
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="title">LISTE DES PACKS</ui:define>
+	<ui:define name="css">
+		<h:outputStylesheet name="css/style.css" />
+	</ui:define>
+	<ui:define name="content">
+	<h:form id="form"> 
+		<p:dataGrid var="p" value="#{packFiltrageBean.listePacks}" columns="3" layout="grid"
+        	rows="12" paginator="true" id="cars"
+        	paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        	rowsPerPageTemplate="6,12,16">
+ 
+        	<f:facet name="header">LISTE DES PACKS</f:facet>
+ 
+        	<p:panel header="#{p.id}" style="text-align:center">
+            	<h:panelGrid columns="1" style="width:100%">
+            		<p:graphicImage name="demo/images/car/#{p.libelle}.gif"/>            		
+            		<h:outputText value="#{p.association.raisonSociale}" /> 
+            		<h:outputText value="Libelle : #{p.libelle} - #{p.prix} eur" />
+                	<h:outputText value="#{p.id}" />                	 
+                	<p:commandLink update=":form:packDetail" oncomplete="PF('packDialog').show()" title="Info Pack">
+                    	<h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                    	<f:setPropertyActionListener value="#{p}" target="#{packFiltrageBean.selectedPackAssociation}" />
+                	</p:commandLink>
+            	</h:panelGrid>
+        	</p:panel> 
+    	</p:dataGrid>
+    	<p:dialog header="Info Produit" widgetVar="packDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:outputPanel id="packDetail" style="text-align:center;">
+            <p:panelGrid  columns="1" rendered="#{not empty packFiltrageBean.selectedPackAssociation}" columnClasses="label,value">        
+               <h:dataTable border="1" var="pr" value="#{packFiltrageBean.selectedPackAssociation.produits}">
+	      			<h:column>	      				          		
+	             		<h:outputText value="#{pr.libelle}" style="color: blue" />
+	        		</h:column>                
+	    		</h:dataTable>
+	    		                
+    		</p:panelGrid>
+    	</p:outputPanel>
+    	</p:dialog>	
+    		
+	</h:form>
+	</ui:define>
+</ui:composition> 
+</body>
+</html>

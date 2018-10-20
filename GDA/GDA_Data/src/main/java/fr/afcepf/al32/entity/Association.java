@@ -1,5 +1,5 @@
-package fr.afcepf.al32.entity;
 
+package fr.afcepf.al32.entity;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +22,7 @@ import lombok.Setter;
 	@NamedQuery(name="AssociationNouvelle", query="SELECT a FROM Association a WHERE a.dateAcceptation is Null And a.dateFin IS Null"),
 	@NamedQuery(name="AssociationParType", query="SELECT a FROM Association a JOIN a.typeProduits t WHERE a.dateAcceptation is not Null And a.dateFin IS Null And t.id =:id"),
 	//@NamedQuery(name="AssociationParPxPack", query="SELECT a FROM Association a JOIN a.packAssociations p WHERE a.dateAcceptation is not Null And a.dateFin IS Null And p.prix  BETWEEN :minPx AND :maxPx ")
-	
+	@NamedQuery(name="AssociationValidee", query="SELECT a FROM Association a WHERE a.dateAcceptation is not Null And a.dateFin IS Null")
 })													
 @Entity
 @Getter @Setter
@@ -72,6 +72,5 @@ public class Association extends Personne {
 		   this.ape = ape;
 		   
 	   }
-	   
-	   
+
 }

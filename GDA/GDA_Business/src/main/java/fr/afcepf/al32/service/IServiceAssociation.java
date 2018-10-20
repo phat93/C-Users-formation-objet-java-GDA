@@ -18,5 +18,5 @@ public interface IServiceAssociation  {
 	Personne rechercherParConnexion(String login, String password);
 	public void accepterAssociation(Long num, Date dateAcc);
 	public void refuserAssociation(Long num, Date dateFin);
-	
+	List<Personne> rechercheAssociationValidee();
 }
