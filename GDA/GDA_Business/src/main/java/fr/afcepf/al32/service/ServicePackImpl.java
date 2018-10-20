@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.afcepf.al32.dao.IPackDao;
+import fr.afcepf.al32.entity.Association;
 import fr.afcepf.al32.entity.Pack;
 import fr.afcepf.al32.entity.PackAssociation;
+import fr.afcepf.al32.entity.Personne;
 
 
 @Component 
@@ -21,9 +23,9 @@ public class ServicePackImpl implements IServicePack {
 	@Autowired 
 	private IPackDao packDao=null;	
 
-	public void setPackDao(IPackDao packDao) {
-		this.packDao = packDao;
-	}
+//	public void setPackDao(IPackDao packDao) {
+//		this.packDao = packDao;
+//	}
 	
 	@Override
 	public void ajouterPack(Pack p) {
@@ -32,12 +34,17 @@ public class ServicePackImpl implements IServicePack {
 	
 
 	@Override
-	public Pack rechercherPackParNumero(Long num) {			
-		return (PackAssociation)packDao.findOne(num);		
+	public Pack rechercherPackParNumero(Long num) {		
+		
+		Pack p = packDao.findOne(num);
+		if(p instanceof PackAssociation)
+		{
+			return p;
+		}else return null;
 	}
 		
 	@Override  
-	public List<PackAssociation> rechercherPackAssociation() {		
+	public List<Pack> rechercherPackAssociation() {		
 		return packDao.findAllPackAssociation();		
 	}
 

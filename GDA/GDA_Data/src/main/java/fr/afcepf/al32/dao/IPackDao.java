@@ -7,7 +7,7 @@ import fr.afcepf.al32.entity.PackAssociation;
 
 public interface IPackDao extends IGenericDao<Pack> {
 	
-	List<PackAssociation> findAllPackAssociation();
+	List<Pack> findAllPackAssociation();
 
 	List<PackAssociation> findAllPackAssociationByType(Long idType);
 	List<PackAssociation> findAllPackAssociationByAssociation(Long id);

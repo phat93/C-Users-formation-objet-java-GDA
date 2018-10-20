@@ -11,10 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.afcepf.al32.entity.Personne;
 
-/*
- * implémentation avec technologie JPA/Hibernate 
- * (autre implémentation possible PersonneDaoJdbc (Statement, ResultSet )
- */
+
 @Component
 @Transactional //idealement en version Spring
 public class PersonneDaoJpa implements IPersonneDao {

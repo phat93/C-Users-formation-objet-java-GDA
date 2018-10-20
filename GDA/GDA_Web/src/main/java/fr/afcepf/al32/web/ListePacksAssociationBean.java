@@ -18,13 +18,13 @@ import fr.afcepf.al32.service.IServicePack;
 import fr.afcepf.al32.service.IServicePersonne;
 
 
-@ManagedBean
+@ManagedBean 
 @RequestScoped 
 public class ListePacksAssociationBean {
 	
-	@ManagedProperty("#{servicePackImpl}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
+	@ManagedProperty(value ="#{servicePackImpl}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
 	private IServicePack servicePack;
-	private List<PackAssociation> packs;
+	private List<Pack> packs;
 	/****/
 	
 	private Long idAssociation= 8L;
@@ -47,7 +47,7 @@ public class ListePacksAssociationBean {
 		
 		packs = servicePack.rechercherPackAssociation();
 		System.out.println("taille packs: " + packs.size());
-
+		System.out.println("contenue: " + packs.toString() );
 
 	}
 //	public String AfficherListePack()
@@ -78,15 +78,16 @@ public class ListePacksAssociationBean {
 
 
 
-	public List<PackAssociation> getPacks() {
+	public List<Pack> getPacks() {
 		return packs;
 	}
 
 
 
-	public void setPacks(List<PackAssociation> packs) {
+	public void setPacks(List<Pack> packs) {
 		this.packs = packs;
 	}
+
 
 
 	public Long getIdAssociation() {
@@ -110,6 +111,7 @@ public class ListePacksAssociationBean {
 	public void setPersonne(ConnexionBean personne) {
 		this.personne = personne;
 	}
+
 
 
 }
