@@ -84,5 +84,10 @@ public class ServiceAssociation implements IServiceAssociation {
 		 personneDao.save(a);
 		
 	}	
+	
+	@Override
+	public List<Personne> rechercheAssociationValidee() {
+		return personneDao.findAll("AssociationValidee");
+	}
 
 }
