@@ -137,7 +137,6 @@ footer {
   	bottom: 0;
   	left: 0;
     width: 100%;
-    background: #61afaf;
     padding: 15px 0px 15px 0px;
     color: white;
     
@@ -154,6 +153,10 @@ footer {
 }
 
 #footer {
+    background: #61afaf;
+}
+
+footer div {
 	margin-left: 30px;
 }
 
