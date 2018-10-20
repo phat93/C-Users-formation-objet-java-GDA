@@ -50,6 +50,7 @@ public class ServicePackImpl implements IServicePack {
 
 	@Override
 	public List<PackAssociation> rechercherPackAssociationParAssociation(Long id) {
+		System.out.println("id " + id);
 		return packDao.findAllPackAssociationByAssociation(id);
 	}
 

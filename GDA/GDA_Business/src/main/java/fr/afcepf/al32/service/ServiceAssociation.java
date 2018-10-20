@@ -47,6 +47,7 @@ public class ServiceAssociation implements IServiceAssociation {
 
 	@Override
 	public List<Personne> rechercheAssociationNouvelle() {
+		System.out.println("je suis ds recher");
 		return personneDao.findAll("AssociationNouvelle");
 	}
 	@Override
