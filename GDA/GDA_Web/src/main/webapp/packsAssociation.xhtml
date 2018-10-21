@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="fr"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<!-- c la page qui affiche la liste des packs d une association données -->	
+	<h:body>
+
+      <ui:composition template="/templates/commonAssociation.xhtml">
+      	
+      	<ui:define name="title">Liste packs association</ui:define>
+      	
+      	<ui:define name="css">
+      		<h:outputStylesheet name="css/style.css" />
+      		<h:outputStylesheet name="css/associations.css" />
+      		
+		</ui:define>
+		
+        <ui:define name="content">
+ 
+      
+      	<h:form id="form">
+<!-- 		    <p:carousel value="#{listePacksAssociationBean.packs}" headerText="Liste des packs disponibles" var="pack" itemStyle="text-align:center" responsive="true"> -->
+<!-- 		        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank"> -->
+<!-- 		            <f:facet name="header"> -->
+<!-- 		                <p:graphicImage name="demo/images/car/aliment.gif"/> -->
+<!-- 		            </f:facet> -->
+		 
+<!-- 		            <h:outputText value="Id:" /> -->
+<!-- 		            <h:outputText value="#{pack.id}" /> -->
+		 
+<!-- 		            <h:outputText value="libellé" /> -->
+<!-- 		            <h:outputText value="#{pack.libelle}" /> -->
+		 
+<!-- 		            <h:outputText value="Prix" /> -->
+<!-- 		            <h:outputText value="€#{pack.prix}" /> -->
+<!-- 		        </p:panelGrid> -->
+<!-- 		    </p:carousel> -->
+
+
+			    	<p:dataGrid var="pack" value="#{listePacksAssociationBean.packs}" columns="3" layout="grid"
+				        rows="5"  id="pack">
+				 
+				        <f:facet name="header">
+				            Liste des packs en ligne
+				        </f:facet>
+			 
+			        	<p:panel header="#{pack.libelle}" style="text-align:center">
+			            	<h:panelGrid columns="1" style="width:100%">
+			                	<p:graphicImage name="img/aliment.jpg"/> 			 
+			                	<h:outputText value="€#{pack.prix}" />
+			                
+				                <p:commandLink update=":form:packDetail" oncomplete="PF('packDialog').show()" title="Detail du pack">
+				                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+				                    <f:setPropertyActionListener value="#{pack}" target="#{packFiltrageBean.selectedPackAssociation}" />
+				                </p:commandLink>			             
+			               </h:panelGrid>
+			             </p:panel> 
+			          </p:dataGrid>
+	                <p:dialog header="Detail du pack" widgetVar="packDetail" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+		        		<p:outputPanel id="packDetail" style="text-align:center;">
+		            	<p:panelGrid  columns="2" rendered="#{not empty packFiltrageBean.listeProduits}" columnClasses="label,value">
+			                <f:facet name="header">
+			                </f:facet>	
+			                 <h:outputText value="" />                
+			                 <h:outputText value="#{PackFiltrageBean.listeProduits.id} " style="color:blue"/>               
+			                 <h:outputText value="" /> 
+			                 <h:outputText value="#{PackFiltrageBean.listeProduits.libelle} " style="color:blue" />
+			                 <h:outputText value="" /> 
+			                 <h:outputText value="#{PackFiltrageBean.listeProduits.prix}" style="color:blue" />
+			                 <h:outputText value="" /> 
+				         </p:panelGrid>
+				        </p:outputPanel>
+				    </p:dialog> 
+		 	</h:form>
+      
+
+<!-- 			<p:dataTable var="c" value="#{listePacksAssociationBean.packs}"> -->
+<!-- 			    <p:column headerText="Id"> -->
+<!-- 			        <h:outputText value="#{c.id}" /> -->
+<!-- 			    </p:column> -->
+			 
+<!-- 			    <p:column headerText="libelle"> -->
+<!-- 			        <h:outputText value="#{c.libelle}" /> -->
+<!-- 			    </p:column> -->
+			 
+<!-- 			    <p:column headerText="prix"> -->
+<!-- 			        <h:outputText value="#{c.prix}" /> -->
+<!-- 			    </p:column> -->
+<!-- 			    <p:column headerText="date ajout"> -->
+<!-- 			        <h:outputText value="#{c.dateAjout}" /> -->
+<!-- 			    </p:column> -->
+<!--    			</p:dataTable> -->
+		     
+	       </ui:define>      
+	      </ui:composition>
+	     
+	   </h:body>	
+
+</html>

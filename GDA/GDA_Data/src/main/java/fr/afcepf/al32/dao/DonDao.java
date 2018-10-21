@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.afcepf.al32.entity.Don;
+import fr.afcepf.al32.entity.PackAssociation;
 import fr.afcepf.al32.entity.Personne;
 
 @Component
@@ -65,5 +66,7 @@ public class DonDao implements IDonDao {
 				.setParameter("idDonateur", valParam)
 	            .getResultList();
 	}*/
+
+	
 
 }

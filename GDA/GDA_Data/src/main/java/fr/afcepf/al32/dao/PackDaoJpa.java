@@ -18,8 +18,8 @@ public class PackDaoJpa implements IPackDao {
 	private EntityManager entityManager;
 
 	@Override
-	public List<Pack> findAllPackAssociation() {
-		return entityManager.createNamedQuery("PackAssociationfindAll", Pack.class)
+	public List<PackAssociation> findAllPackAssociation() {
+		return entityManager.createNamedQuery("PackAssociationfindAll", PackAssociation.class)
 				            .getResultList();			
 	}	
 
@@ -76,6 +76,8 @@ public class PackDaoJpa implements IPackDao {
 	public List<Pack> findAll() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
+
+	
 	
 }

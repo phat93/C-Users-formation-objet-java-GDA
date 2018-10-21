@@ -8,6 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
+import org.dom4j.bean.BeanAttribute;
+import org.springframework.context.annotation.Bean;
 
 import fr.afcepf.al32.entity.Association;
 import fr.afcepf.al32.entity.Pack;
@@ -24,10 +28,10 @@ public class ListePacksAssociationBean {
 	
 	@ManagedProperty(value ="#{servicePackImpl}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
 	private IServicePack servicePack;
-	private List<Pack> packs;
+	private List<PackAssociation> packs;
 	/****/
 	
-	private Long idAssociation= 8L;
+	private String idAssociation;
 	
 	
 	//private List<PackAssociation> packs;
@@ -42,27 +46,24 @@ public class ListePacksAssociationBean {
 //		
 //	}
 	
+//	@PostConstruct
+//	public void init() {
+//	
+//		packs = servicePack.rechercherPackAssociationParAssociation(id);
+//		System.out.println("taille packs: " + packs.size());
+//		System.out.println("contenue: " + packs.toString() );
+//
+//	}
 	@PostConstruct
-	public void init() {
+	public void init()
+	{
 		
-		packs = servicePack.rechercherPackAssociation();
+		packs = servicePack.rechercherPackAssociationParAssociation(10L);
+		
 		System.out.println("taille packs: " + packs.size());
 		System.out.println("contenue: " + packs.toString() );
 
 	}
-//	public String AfficherListePack()
-//	{
-//		String suite=null;
-//		//List<PackAssociation> packs = servicePack.rechercherPackAssociationParAssociation(8L);
-//		//List<PackAssociation> packs = servicePack.rechercherPackAssociation();	
-//		List<Personne> packs = servicePersonne.rechercheAssociationNouvelle();
-//		suite="ListePacksAssociation";
-//		System.out.println("taille : " + packs.size());
-//		System.out.println("contenue: " + packs.toString() );
-//		// pour naviguer vers comptes.jsf (.xhtml ou .jsp)
-//		return suite; 
-//		
-//	}
 
 
 
@@ -78,25 +79,28 @@ public class ListePacksAssociationBean {
 
 
 
-	public List<Pack> getPacks() {
+	public List<PackAssociation> getPacks() {
 		return packs;
 	}
 
 
 
-	public void setPacks(List<Pack> packs) {
+	public void setPacks(List<PackAssociation> packs) {
 		this.packs = packs;
 	}
 
 
 
-	public Long getIdAssociation() {
+	
+
+
+	public String getIdAssociation() {
 		return idAssociation;
 	}
 
 
 
-	public void setIdAssociation(Long idAssociation) {
+	public void setIdAssociation(String idAssociation) {
 		this.idAssociation = idAssociation;
 	}
 
