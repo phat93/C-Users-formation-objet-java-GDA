@@ -1,6 +1,5 @@
 package fr.afcepf.al32.web;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -10,9 +9,6 @@ import fr.afcepf.al32.entity.Association;
 import fr.afcepf.al32.entity.Donateur;
 import fr.afcepf.al32.entity.Personne;
 import fr.afcepf.al32.service.IServiceAdministrateur;
-import fr.afcepf.al32.service.IServiceAssociation;
-import fr.afcepf.al32.service.IServiceDonateur;
-import fr.afcepf.al32.service.ServiceAdministrateur;
 
 @ManagedBean
 @SessionScoped 
@@ -20,56 +16,68 @@ public class ConnexionBean
 {
 	private String login;
 	private String password;
+	private String msg;
+	
+	private boolean redirectionHistorique = false;
+	
+	private Personne utilisateur;
 
 	@ManagedProperty("#{serviceAdministrateur}")
 	private IServiceAdministrateur serviceAdministrateur;
 	
-	@ManagedProperty("#{serviceDonateur}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
-	private IServiceDonateur serviceDonateur;//avec get?/set
-	
-	@ManagedProperty("#{serviceAssociation}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
-	private IServiceAssociation serviceAssociation;//avec get?/set
-	
-	@PostConstruct
-	public void Init()
+	public String login()
 	{
-		
+		Personne p = serviceAdministrateur.rechercherParConnexion(login, password);
+		String suite = null;
+		if(p != null)
+		{
+			msg = "";
+			
+			if(p instanceof Donateur)
+			{
+				utilisateur = (Donateur) p;
+				suite="accueilDonateur";
+				
+				if(redirectionHistorique)
+				{
+					suite="historiqueDon";
+					redirectionHistorique = false;
+				}
+				
+			}
+			else if(p instanceof Association)
+			{
+				utilisateur = (Association) p;
+				suite="accueilAssociation";
+			}
+			else
+			{
+				utilisateur = (Administrateur) p;
+				suite="accueilAdmin";
+			}
+
+			
+		}
+		else
+		{
+			utilisateur = null;
+			msg = "Identifiant et/ou Mot de Passe incorrecte";
+		}
+		System.out.println(suite);
+		return suite;
 	}
 	
-	public String login(String page)
+	public String accesHistorique()
 	{
-		//Personne p =null;
-		String suite = null;
-		switch (page) 
+		if(utilisateur == null)
 		{
-		case "admin":
-			Personne p = serviceAdministrateur.rechercherParConnexion(login, password);
-			if(p != null)
-			{
-				if(p != null && p instanceof Administrateur)
-				{
-					suite="AdminOK";
-				}
-			}
-			break;
-			
-		case "association":
-			Personne p2 = serviceAssociation.rechercherParConnexion(login, password);
-			if(p2 != null && p2 instanceof Association)
-			{
-				suite="AssosOK";
-			}
-			break;
-
-		default:
-			Personne p3 = serviceDonateur.rechercherParConnexion(login, password);
-			if(p3 != null && p3 instanceof Donateur)
-			{
-				suite="DonateurOK";
-			}
-			break;
+			redirectionHistorique = true;
+			return "login.jsf";
 		}
-		return suite;
+		else
+		{
+			return "historiqueDon.jsf";
+		}
 	}
 
 	public String getLogin() {
@@ -96,20 +104,28 @@ public class ConnexionBean
 		this.serviceAdministrateur = serviceAdministrateur;
 	}
 
-	public IServiceDonateur getServiceDonateur() {
-		return serviceDonateur;
+	public String getMsg() {
+		return msg;
 	}
 
-	public void setServiceDonateur(IServiceDonateur serviceDonateur) {
-		this.serviceDonateur = serviceDonateur;
+	public void setMsg(String msg) {
+		this.msg = msg;
 	}
 
-	public IServiceAssociation getServiceAssociation() {
-		return serviceAssociation;
+	public Personne getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setServiceAssociation(IServiceAssociation serviceAssociation) {
-		this.serviceAssociation = serviceAssociation;
+	public void setUtilisateur(Personne utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+
+	public boolean isRedirectionHistorique() {
+		return redirectionHistorique;
+	}
+
+	public void setRedirectionHistorique(boolean redirectionHistorique) {
+		this.redirectionHistorique = redirectionHistorique;
 	}
 
 }
