@@ -9,8 +9,6 @@ import fr.afcepf.al32.entity.Association;
 import fr.afcepf.al32.entity.Donateur;
 import fr.afcepf.al32.entity.Personne;
 import fr.afcepf.al32.service.IServiceAdministrateur;
-import fr.afcepf.al32.service.IServiceAssociation;
-import fr.afcepf.al32.service.IServiceDonateur;
 
 @ManagedBean
 @SessionScoped 
@@ -20,30 +18,31 @@ public class ConnexionBean
 	private String password;
 	private String msg;
 	
+	private boolean redirectionHistorique = false;
+	
 	private Personne utilisateur;
 
 	@ManagedProperty("#{serviceAdministrateur}")
 	private IServiceAdministrateur serviceAdministrateur;
 	
-	@ManagedProperty("#{serviceDonateur}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
-	private IServiceDonateur serviceDonateur;//avec get?/set
-	
-	@ManagedProperty("#{serviceAssociation}") //#{nomComposantJsfOuSpring} //nomClasseJava avec minuscule au debut
-	private IServiceAssociation serviceAssociation;//avec get?/set
-
-	
 	public String login()
 	{
 		Personne p = serviceAdministrateur.rechercherParConnexion(login, password);
 		String suite = null;
-		 
 		if(p != null)
 		{
+			msg = "";
+			
 			if(p instanceof Donateur)
 			{
-				
 				utilisateur = (Donateur) p;
 				suite="accueilDonateur";
+				
+				if(redirectionHistorique)
+				{
+					suite="historiqueDon";
+					redirectionHistorique = false;
+				}
 				
 			}
 			else if(p instanceof Association)
@@ -56,13 +55,29 @@ public class ConnexionBean
 				utilisateur = (Administrateur) p;
 				suite="accueilAdmin";
 			}
+
 			
 		}
 		else
 		{
+			utilisateur = null;
 			msg = "Identifiant et/ou Mot de Passe incorrecte";
 		}
+		System.out.println(suite);
 		return suite;
+	}
+	
+	public String accesHistorique()
+	{
+		if(utilisateur == null)
+		{
+			redirectionHistorique = true;
+			return "login.jsf";
+		}
+		else
+		{
+			return "historiqueDon.jsf";
+		}
 	}
 
 	public String getLogin() {
@@ -89,22 +104,6 @@ public class ConnexionBean
 		this.serviceAdministrateur = serviceAdministrateur;
 	}
 
-	public IServiceDonateur getServiceDonateur() {
-		return serviceDonateur;
-	}
-
-	public void setServiceDonateur(IServiceDonateur serviceDonateur) {
-		this.serviceDonateur = serviceDonateur;
-	}
-
-	public IServiceAssociation getServiceAssociation() {
-		return serviceAssociation;
-	}
-
-	public void setServiceAssociation(IServiceAssociation serviceAssociation) {
-		this.serviceAssociation = serviceAssociation;
-	}
-
 	public String getMsg() {
 		return msg;
 	}
@@ -119,6 +118,14 @@ public class ConnexionBean
 
 	public void setUtilisateur(Personne utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+
+	public boolean isRedirectionHistorique() {
+		return redirectionHistorique;
+	}
+
+	public void setRedirectionHistorique(boolean redirectionHistorique) {
+		this.redirectionHistorique = redirectionHistorique;
 	}
 
 }
