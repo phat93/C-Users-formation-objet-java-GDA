@@ -4,7 +4,8 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	
 	
 	<h:body>
@@ -14,11 +15,78 @@
         
         <ui:define name="content">
         	<h2>Associations</h2>
-        	<h3>Nouvelles demandes</h3>				
-            ...
-            <br/>
-            <h3>Liste des partenaires</h3>
-            ...
+			<h:form id="form">
+		        <h3>Associations Actives</h3>
+				<p:dataTable var="c" value="#{associationListeBean.listAssociations}">
+					<p:column headerText="Raison Sociale" style="width:200px;">
+				        <h:outputText value="#{c.raisonSociale}" />
+				    </p:column>		   
+				    <p:column headerText="Adresse" style="width:350px;">
+				        <h:outputText value="#{c.adresse.numeroVoie}, #{c.adresse.typeVoie} #{c.adresse.nomVoie} #{c.adresse.codePostal} #{c.adresse.ville}" />
+				    </p:column>		 
+				    <p:column headerText="Correspondant" style="width:200px;">
+				        <h:outputText value="#{c.prenom} #{c.nom}" />
+				    </p:column>		 
+				    <p:column headerText="Email" style="width:300px;">
+				        <h:outputText value="#{c.email}" />
+				    </p:column>	    
+				    
+				    <p:column style="width:70px;text-align: center">
+		             <p:commandButton style="color:red;" update=":form:assoDetail" oncomplete="PF('assoDialog').show()" icon="fa fa-fw fa-remove" title="View">
+		                <f:setPropertyActionListener value="#{c}" target="#{associationListeBean.selectedPersonne}" />
+		            </p:commandButton>
+		        </p:column>
+				</p:dataTable>
+		
+				<p:dialog header="Confirmation" widgetVar="assoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="assoDetail" style="text-align:center;">
+			                 <h:outputText style="color:black;" value="Etes-vous sûr de vouloir supprimer cette association de l'application ?" /> <br/><br/>                           
+			                 	 <p:commandButton style="background:green;color:white;" value="Oui" action="#{associationListeBean.supprimerAssociation()}" />
+		 						 <p:commandButton style="background:red;color:white;" value="Non" onclick="PF('assoDialog').hide()" />               
+			        </p:outputPanel>
+			    </p:dialog>
+			    <br/>
+			    <h3>Nouvelles demandes</h3>
+			    <p:dataTable var="c" value="#{associationListeBean.associationNouvelles}">
+					<p:column headerText="Raison Sociale" style="width:200px;">
+				        <h:outputText value="#{c.raisonSociale}" />
+				    </p:column>		   
+				    <p:column headerText="Adresse" style="width:350px;">
+				        <h:outputText value="#{c.adresse.numeroVoie}, #{c.adresse.typeVoie} #{c.adresse.nomVoie} #{c.adresse.codePostal} #{c.adresse.ville}" />
+				    </p:column>		 
+				    <p:column headerText="Correspondant" style="width:200px;">
+				        <h:outputText value="#{c.prenom} #{c.nom}" />
+				    </p:column>		 
+				    <p:column headerText="Email" style="width:300px;">
+				        <h:outputText value="#{c.email}" />
+				    </p:column>	    
+				    
+				    <p:column style="width:70px;text-align: center">
+		             <p:commandButton style="color:red;" update=":form:assoDetailRefus" oncomplete="PF('assoDialog2').show()" icon="fa fa-fw fa-remove" title="View">
+		                <f:setPropertyActionListener value="#{c}" target="#{associationListeBean.selectedPersonne}" />
+		            </p:commandButton>
+		            <p:commandButton style="color:green;" update=":form:assoDetailAccepter" oncomplete="PF('assoDialog3').show()" icon="fa fa-plus" title="View">
+		                <f:setPropertyActionListener value="#{c}" target="#{associationListeBean.selectedPersonne}" />
+		            </p:commandButton>
+		        </p:column>
+				</p:dataTable>
+		
+				<p:dialog header="Confirmation" widgetVar="assoDialog2" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="assoDetailRefus" style="text-align:center;">	
+			                 <h:outputText style="color:black;" value="Etes-vous sûr de vouloir refuser cette association dans l'application ?" /><br/> <br/>                           
+			              	<p:commandButton style="background:green;color:white;" value="Oui" action="#{associationListeBean.supprimerAssociation()}"/>
+		 					<p:commandButton style="background:red;color:white;" value="Non" onclick="PF('assoDialog').hide()"/>               
+			        </p:outputPanel>
+			    </p:dialog>
+			    
+			    <p:dialog header="Confirmation" widgetVar="assoDialog3" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        <p:outputPanel id="assoDetailAccepter" style="text-align:center;">	
+			                 <h:outputText style="color:black;" value="Etes-vous sûr de vouloir d'accepter cette association dans l'application ?" /><br/> <br/>                         
+			                 <p:commandButton style="background:green;color:white;" value="Oui" action="#{associationListeBean.accepterAssociation()}" />
+		 					 <p:commandButton style="background:red;color:white;" value="Non" onclick="PF('assoDialog').hide()"/>
+			        </p:outputPanel>
+			    </p:dialog>
+	         </h:form>
         </ui:define>
         
       </ui:composition>

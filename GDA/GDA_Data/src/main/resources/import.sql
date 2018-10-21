@@ -14,17 +14,17 @@ INSERT INTO Connexion(login, password) VALUES('assos5','pwd5');
 INSERT INTO paysaide (id, libelle) VALUES ('1', 'pays loin')
 ----------------------------------------------------------------------------
 
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('1','Avenue', 'Bayard', 'Paris', '75001', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('2','Rue', 'du pont', 'Paris', '75002', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('3','Boulevard', 'Francois Mitterand', 'Paris', '75003', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('4','Rue', 'du temple', 'Paris', '75004', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('5','Boulevard', 'Saint-Paul', 'Paris', '75005', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('6','Rue', 'de sevre', 'Paris', '75006', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('98','Rue', 'Didot', 'Paris', '75014', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('42','Rue', 'de Clichy', 'Paris', '75009', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('16','Boulevard', 'Douaumont', 'Paris', '75017', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('53','Boulevard', 'de Charonne', 'Paris', '75011', 'France');
-INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays) VALUES('38','Rue', 'Leon', 'Paris', '75018', 'France');
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('1','Avenue', 'Bayard', 'Paris', '75001', 'France', 1);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('2','Rue', 'du pont', 'Paris', '75002', 'France', 2);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('3','Boulevard', 'Francois Mitterand', 'Paris', '75003', 'France', 3);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('4','Rue', 'du temple', 'Paris', '75004', 'France', 4);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('5','Boulevard', 'Saint-Paul', 'Paris', '75005', 'France', 5);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('6','Rue', 'de sevre', 'Paris', '75006', 'France', 6);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('98','Rue', 'Didot', 'Paris', '75014', 'France', 7);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('42','Rue', 'de Clichy', 'Paris', '75009', 'France', 8);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('16','Boulevard', 'Douaumont', 'Paris', '75017', 'France', 9);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('53','Boulevard', 'de Charonne', 'Paris', '75011', 'France', 10);
+INSERT INTO Adresse(numeroVoie, typeVoie, NomVoie, ville, codePostal, pays, idPersonne) VALUES('38','Rue', 'Leon', 'Paris', '75018', 'France', 11);
 
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,dateDebut,idConnexion,idAdresse) VALUES(1,'Administrateur','Amin','Istrateur','AminI@gmail.com','2018-1-01 00:00:00',1,1);
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,dateDebut,idConnexion,idAdresse) VALUES(2,'Administrateur','Maude','Erateur','MaudeE@gmail.com','2018-1-01 00:00:00',2,2);
@@ -33,8 +33,8 @@ INSERT INTO Personne(id,typePersonne,prenom,nom,email,idConnexion,idAdresse) VAL
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,idConnexion,idAdresse) VALUES(5,'Donateur','Camille','Onette','CamilleO@gmail.com',5,5);
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,idConnexion,idAdresse) VALUES(6,'Donateur','Paul','Ochon','PaulO@gmail.com',6,6);
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (7,'Association','Marie','Tim','contact@croixRouge.com','Croix Rouge','80295478500028','0001A','2018-1-01 00:00:00',7,7,1);
-INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (8,'Association','Dan','Delion','contact@restoDuCoeur.com','Resto Du Coeur','80295478500029','0002A','2018-1-02 00:00:00',8,8,1);
-INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (9,'Association','Paul','Ochon','contact@aclf.com','Action Contre La Faim','80295478500030','0011A','2018-1-03 00:00:00',9,9,1);
+INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (8,'Association','Dan','Delion','contact@restoDuCoeur.com','Resto Du Coeur','80295478500029','0002A','2018-1-01 00:00:00',8,8,1);
+INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (9,'Association','Paul','Ochon','contact@aclf.com','Action Contre La Faim','80295478500030','0011A','2018-1-01 00:00:00',9,9,1);
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (10,'Association','Guy','Yotine','contact@aideAction.com','Aide Et Action','80295478500050','0070A',NULL,10,10,1);
 INSERT INTO Personne(id,typePersonne,prenom,nom,email,raisonSociale,siret,ape,dateAcceptation,idConnexion,idAdresse,idPaysAide) VALUES (11,'Association','Justin','Ptipeu','contact@humanAppeal.com','Human Appeal','80295478500060','00501A',NULL,11,11,1);
 

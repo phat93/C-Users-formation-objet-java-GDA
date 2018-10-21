@@ -39,6 +39,7 @@
 		                <b:selectBooleanCheckbox value="true" caption="se souvenir de moi"/>
 		                <b:commandButton look="primary btn-block" value="Connexion" action="#{connexionBean.login}" icon="log-in" size="lg"/>
 		            </h:form>
+		            <h:outputLabel value="#{connexionBean.msg}" style="color:red;width:100%;text-align:center;"/>
 		        </b:container>
 		    </h:body>
     

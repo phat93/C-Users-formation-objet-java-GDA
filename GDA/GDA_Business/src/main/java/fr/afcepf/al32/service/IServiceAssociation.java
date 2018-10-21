@@ -20,3 +20,4 @@ public interface IServiceAssociation  {
 	public void refuserAssociation(Long num, Date dateFin);
 	List<Personne> rechercheAssociationValidee();
 }
+

@@ -10,13 +10,16 @@
 		<ui:composition> 															
 
 	    <h:body style="padding: 60px;">
+
 	        <b:navBar brand="Bienvenue: #{connexionBean.utilisateur.raisonSociale}" brandHref="accueilAssociation" position="top" sticky="true" 
 	        style="background:#07c05a;"> 
+
 	            <b:navbarLinks pull="right">
 	            	<b:navLink value="Accueil GDA" href="index.jsf" style="color:#ffffff;"></b:navLink>
 	            	<b:navLink value="Packs" href="packsAssociation.jsf"  style="color:#ffffff;"></b:navLink>          	  	
 	            	<b:navLink value="Dons recues" href="#" style="color:#ffffff;"></b:navLink>
 	            	<b:navLink value="Deconnexion" href="index.jsf" iconAwesome="fa-unlock-alt" style="color:#ffffff;"></b:navLink>
+
 	            </b:navbarLinks>
 	        </b:navBar>
         </h:body>
