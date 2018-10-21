@@ -68,10 +68,13 @@ public class ServicePackImpl implements IServicePack {
 
 
 	@Override
-	public void desactiverPack(PackAssociation p) {
+	public void desactiverPack(Long num) {
+		
+		PackAssociation p = (PackAssociation) packDao.findOne(num);
 		Timestamp dtefin = new Timestamp( System.currentTimeMillis() );
 		p.setDateRetrait(dtefin);
 		packDao.save(p);
+		System.out.println("j essaye de supprimer");
 	}
 
 
