@@ -316,5 +316,3 @@ INSERT INTO pack_produit(idPack,idProduit) VALUES (12,74);
 INSERT INTO pack_produit(idPack,idProduit) VALUES (12,86);
 INSERT INTO pack_produit(idPack,idProduit) VALUES (12,73);
 INSERT INTO pack_produit(idPack,idProduit) VALUES (12,88);
-
- 
