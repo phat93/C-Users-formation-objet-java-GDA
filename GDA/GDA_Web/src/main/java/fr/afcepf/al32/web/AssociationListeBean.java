@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import fr.afcepf.al32.entity.Association;
 import fr.afcepf.al32.entity.Personne;
@@ -41,7 +42,7 @@ public class AssociationListeBean {
 	    return suite;
 	}
 	
-	public String accepterAssociation()
+	public String accepterAssociation(ActionEvent e)
 	{
 		String suite=null;	
 		serviceAssociation.accepterAssociation(selectedPersonne.getId(), new Timestamp( System.currentTimeMillis()));

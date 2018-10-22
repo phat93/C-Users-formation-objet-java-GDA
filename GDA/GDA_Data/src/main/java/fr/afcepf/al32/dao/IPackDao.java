@@ -11,5 +11,6 @@ public interface IPackDao extends IGenericDao<Pack> {
 
 	List<PackAssociation> findAllPackAssociationByType(Long idType);
 	List<PackAssociation> findAllPackAssociationByAssociation(Long id);
-	List<PackAssociation> findAllPackAssociationByAssociationAndType(Long id, Long idType);		
+	List<PackAssociation> findAllPackAssociationByAssociationAndType(Long id, Long idType);
+
 }

@@ -33,6 +33,7 @@ import lombok.ToString;
 	@NamedQuery(name="Donateur.Connexion", query="SELECT d FROM Donateur d "
 															+ "WHERE d.connexion.password = :password "
 															+ "and d.connexion.login = :login "),
+	@NamedQuery(name="Donateur.All", query="SELECT d FROM Donateur d "),
 	@NamedQuery(name="Personne.Connexion", query="SELECT p FROM Personne p "
 															+ "WHERE p.connexion.password = :password "
 															+ "and p.connexion.login = :login ")

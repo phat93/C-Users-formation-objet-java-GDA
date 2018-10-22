@@ -32,7 +32,7 @@ import lombok.ToString;
                      discriminatorType=DiscriminatorType.STRING)
 @Table(name="Pack")
 @NamedQueries({
-	@NamedQuery(name="PackAssociation.findAll", query="SELECT c FROM PackAssociation c"),
+	@NamedQuery(name="PackAssociationfindAll", query="SELECT c FROM PackAssociation c"),
 	
 	@NamedQuery(name="PackAssociation.findAllByType", query="SELECT c FROM PackAssociation c "
 																+ "WHERE c.typeProduit.id = :idType "

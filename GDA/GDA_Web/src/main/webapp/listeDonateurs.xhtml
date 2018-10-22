@@ -4,7 +4,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:p="http://primefaces.org/ui">
 	
 	
 	<h:body>
@@ -14,7 +16,21 @@
         
         <ui:define name="content">
         	<h2>Donateurs</h2>
-            ...
+            <p:dataTable var="c" value="#{donateurListeBean.listeDonateur}">
+					<p:column headerText="Prenom" style="width:200px;">
+				        <h:outputText value="#{c.prenom}" />
+				    </p:column>
+				    <p:column headerText="Nom" style="width:200px;">
+				        <h:outputText value="#{c.nom}" />
+				    </p:column>		   
+				    <p:column headerText="Adresse" style="width:350px;">
+				        <h:outputText value="#{c.adresse.numeroVoie}, #{c.adresse.typeVoie} #{c.adresse.nomVoie} #{c.adresse.codePostal} #{c.adresse.ville}" />
+				    </p:column>		 	 
+				    <p:column headerText="Email" style="width:300px;">
+				        <h:outputText value="#{c.email}" />
+				    </p:column>	    
+				    
+				</p:dataTable>
         </ui:define>
         
       </ui:composition>

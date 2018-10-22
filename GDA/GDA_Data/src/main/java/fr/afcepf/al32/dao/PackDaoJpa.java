@@ -19,9 +19,7 @@ public class PackDaoJpa implements IPackDao {
 
 	@Override
 	public List<PackAssociation> findAllPackAssociation() {
-		System.out.println("PackDaoJpa - findAllPackAssociation ");
-		
-		return entityManager.createNamedQuery("PackAssociation.findAll", PackAssociation.class)
+		return entityManager.createNamedQuery("PackAssociationfindAll", PackAssociation.class)
 				            .getResultList();			
 	}	
 
@@ -78,6 +76,8 @@ public class PackDaoJpa implements IPackDao {
 	public List<Pack> findAll() {
 		// TODO Auto-generated method stub
 		return null;
-	}	
+	}
+
+	
 	
 }
