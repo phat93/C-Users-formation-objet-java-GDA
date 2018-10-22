@@ -4,74 +4,21 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:f="http://java.sun.com/jsf/core">
+	
 	
 	<h:body>
       <ui:composition template="/templates/commonAssociation.xhtml">
       	
-      	<ui:define name="title">Associations</ui:define>
-      	
-      	<ui:define name="css">
-      	
-<!--       		<h:outputStylesheet name="css/style.css" /> -->
-      		
-		</ui:define>
-		
+      	<ui:define name="title">Accueil Association</ui:define>
+        
         <ui:define name="content">
-        	
-        	<h:form>
-        	
-	        	<label>Type de produit :</label>
-				<h:selectOneRadio value = "#{accueilAssociationBean.idTypeProduit}" > 
-				   <f:selectItem itemValue = "1" itemLabel = "Alimentaire"  /> 
-				   <f:selectItem itemValue = "2" itemLabel = "Educative" />
-				    <f:selectItem itemValue = "3" itemLabel = "Vestimentaire" />
-				</h:selectOneRadio>
-				<h:commandButton value="Valider" actionListener="#{accueilAssociationBean.changerTypeProduit}" />
-			<br/>
-				<label>Nom du pack :</label>
-				<input type="text" value="#{accueilAssociationBean.libellePack}"/>
-			<hr/>
-			
-				<h4 style="margin-top: 0">Constituer votre pack :</h4>
-			    <p:pickList id="PojoPickList" value="#{accueilAssociationBean.produits}" var="asso"
-                itemValue="#{asso}" itemLabel="#{asso.libelle}" showCheckbox="true" responsive="true"
-                showSourceFilter="true" showTargetFilter="true" filterMatchMode="contains" converter="entityConverter">
-			 		<f:facet name="sourceCaption">Produits</f:facet>
-        			<f:facet name="targetCaption">Pack</f:facet>
-			        <p:column style="width:90%;">
-			            <h:outputText value="#{asso.libelle}" />
-			        </p:column>
-			        <p:column style="width:10%;">
-			            <h:outputText value="#{asso.prix} €" />
-			        </p:column>
-			    </p:pickList>
-			    
-			    <p:commandButton id="pojoSubmit" value="Valider le pack" update="displayThemes"
-			    oncomplete="PF('packDialog').show()" style="margin-top:5px"/>
- 				
- 				<p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="packDialog">
-					<f:facet name="header">
-				        <h:outputText value="Récapitulatif du Pack: " style="font-weight:bold" />
-				    </f:facet>
-					<h:panelGrid id="displayThemes" columns="2">
-			            <ui:repeat value="#{accueilAssociationBean.produits.target}" var="asso">
-			                <h:outputText value="#{asso.libelle}" style="margin-right:15px" /> <br/>
-			            </ui:repeat>    
-			            <ui:repeat value="#{accueilAssociationBean.produits.target}" var="asso">    
-			                <h:outputText value="#{asso.prix} €" style="margin-left:15px" /> <br/>
-			            </ui:repeat>
-			        
-				        <h:outputText value="Prix total : " style="margin-right:15px; font-weight:bold;" />
-				        <h:outputText value="#{accueilAssociationBean.produits.target.stream().map(asso->asso.prix).sum()} €"
-				        style="margin-left:15px; font-weight:bold;" />
-					</h:panelGrid>
-					<h:commandButton value="Valider" actionListener="#{accueilAssociationBean.creerPack}" />	
-			    </p:dialog>
-            </h:form>
-            
+        	<h2>Bonjour #{connexionBean.utilisateur.raisonSociale}</h2>
+        	<h3>Statistiques</h3>				
+            ...
         </ui:define>
+        
       </ui:composition>
    </h:body>	
+
 </html>
