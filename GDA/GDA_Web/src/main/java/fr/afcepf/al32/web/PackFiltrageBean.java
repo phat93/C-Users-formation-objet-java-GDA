@@ -49,9 +49,9 @@ public class PackFiltrageBean {
 	}
 	
 	//Pack possede des produits
-	public String recupererListeProduits(Long idPack) {		
+	public String recupererListeProduits() {		
 		String suite=null;
-		listeProduits = serviceProduit.rechercherPackAvecProduits(idPack);	
+		listeProduits = serviceProduit.rechercherPackAvecProduits(5L);	
 		System.out.println("taille listeProduits: " + listeProduits.size());
 		System.out.println("contenue listeProduits: " + listeProduits.toString() );
 		suite="testListe";
