@@ -24,7 +24,7 @@ h5 {
 .containerFiltre {
     display: block;
     position: relative;
-    padding-left: 25px;
+    padding-left: 40px;
     margin-bottom: 8px;
     cursor: pointer;
     font-size: 12px;
@@ -47,26 +47,26 @@ h5 {
 	border: 2px solid black;
 	border-radius: 10px;
 /* 	background: #408080; */
-	background-image: url("https://image.shutterstock.com/z/stock-vector-piggy-bank-icon-649552489.jpg");
-	background-size: 250px 210px;
+	background-color: #468c8c;
 	color: white;
 	padding: 5px;
   	width: 250px;
-  	height: 210px;
+  	height: 350px;
   	margin: 10px;
+  	text-align: center;
 }
 
 .transbox {
-
-  margin: 5px;
-  background-color: black;
-  border: 1px solid black;
-  opacity: 0.5;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+	height:230px;
+	width:230px;
+  	margin: 5px;
+  	background-color: black;
+  	border: 1px solid black;
+  	filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 .button {
     background-color: #4CAF50;
-    opacity: 0.7;
+    opacity: 1;
     border: none;
     color: white;
     padding: 8px 22px;

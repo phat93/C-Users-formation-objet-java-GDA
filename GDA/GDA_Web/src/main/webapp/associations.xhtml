@@ -22,164 +22,62 @@
         
 			<div id="navside">
 				<div id="filtre">
-					<div class="titreFiltre">
-						Filtrer par :
-					</div>
-					<h5>Type de besoin</h5>
-					<label class="containerFiltre">
-					  <input type="checkbox"/>Alimentaire
-					</label>
-					<label class="containerFiltre">
-					  <input type="checkbox"/>Educative
-					</label>
-					<label class="containerFiltre">
-					  <input type="checkbox"/>Vestimentaire
-					</label>
-				<hr />
-					<h5>Prix</h5>
-					<label class="containerFiltre">
-					  <input type="radio" name="prix" />0 - 10 €
-					</label>
-					<label class="containerFiltre">
-					  <input type="radio" name="prix"/>11 - 20 €
-					</label>
-					<label class="containerFiltre">
-					  <input type="radio" name="prix"/>21 - 30 €
-					</label>
-				<hr />
-					<h5>Pays</h5>
-					<div class="containerFiltre" style="width:200px;">
-					  <select>
-					    <option value="0">Selectionner un pays</option>
-					    <option value="1">France</option>
-					    <option value="2">Madagascar</option>
-					    <option value="2">Maroc</option>
-					  </select>
-					</div>
-				<hr />
-				<input type="button" value="Valider"/>
+					
+						<div class="titreFiltre">Filtrer par :</div>
+						<h:form>
+						<h5>Type de besoin</h5>
+						<div class="containerFiltre" style="width:200px;">
+							<h:selectOneMenu value="#{associationFiltreBean.idType}">
+							    <f:selectItem itemLabel="Choisir..." itemValue="0"/>
+							    <f:selectItem itemLabel="Alimentaire" itemValue="1"/>
+							    <f:selectItem itemLabel="Vestimentaire" itemValue="2"/>
+							    <f:selectItem itemLabel="Fourniture" itemValue="3"/>
+							</h:selectOneMenu>
+							<h:commandButton value="Filtrer par type" action="#{associationFiltreBean.recupererAssociationsParType()}" />
+						</div>
+						</h:form>
+						<hr />
+						<h:form>
+						<h5>Prix</h5>
+						<div class="containerFiltre" style="width:200px;">
+							<label>Prix Mini : </label><h:inputText type="number" min="0" value="#{associationFiltreBean.prixMin}" size="3"/>€<br/>
+							<label>Prix Max : </label><h:inputText type="number" min="0" value="#{associationFiltreBean.prixMax}" size="3"/>€<br/>
+							<h:commandButton value="Filtrer par prix" action="#{associationFiltreBean.recupererAssociationsParPrix()}" />
+						</div>
+						</h:form>
+						<hr />
+						<h:form>
+						<h5>Pays</h5>
+						<div class="containerFiltre" style="width:200px;">
+						  <h:selectOneMenu value="#{associationFiltreBean.idPays}">
+						    <f:selectItem itemLabel="Choisir..." itemValue="0"/>
+						    <f:selectItem itemLabel="France" itemValue="1"/>
+						    <f:selectItem itemLabel="Madagascar" itemValue="2"/>
+						    <f:selectItem itemLabel="Maroc" itemValue="3"/>
+						  </h:selectOneMenu>
+						  <h:commandButton value="Filtrer par prix" action="#{associationFiltreBean.recupererAssociationsParPays()}" />
+						</div>
+					</h:form>
 				</div>
 			</div>        
         	
         	<h2>Associations</h2>
         	
             <div id="containerAssociation">
-            
-            	<div class="elementAssociation">
-	            	<div class="transbox">
-	            		<div>
-	            			<label>Nom Association</label>
-	            		</div><br/>
-	            		<div>
-	            			Pays cible : ...
-	            		</div><br/>
-	            		<div>
-	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
-	            		</div><br/>
-	            	</div>
-	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
-            	</div>
             	
-            	<div class="elementAssociation">
-	            	<div class="transbox">
-	            		<div>
-	            			<label>Nom Association</label>
-	            		</div><br/>
-	            		<div>
-	            			Pays cible : ...
-	            		</div><br/>
-	            		<div>
-	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
-	            		</div><br/>
+            	<p:repeat var="a" value="#{associationFiltreBean.associationsFiltre}">
+            		<div class="elementAssociation">
+	            	<div class="transbox" style="background-image:url('./resources/img/assos_#{a.id}.jpg')">
+	            		
 	            	</div>
+	            	<div><label>#{a.raisonSociale}</label></div>
+	            	<div>Pays cible : #{a.paysAide.libelle}</div>
 	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
             	</div>
+            	</p:repeat>
             	
-            	<div class="elementAssociation">
-	            	<div class="transbox">
-	            		<div>
-	            			<label>Nom Association</label>
-	            		</div><br/>
-	            		<div>
-	            			Pays cible : ...
-	            		</div><br/>
-	            		<div>
-	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
-	            		</div><br/>
-	            	</div>
-	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
-            	</div>
-            	
-            	<div class="elementAssociation">
-	            	<div class="transbox">
-	            		<div>
-	            			<label>Nom Association</label>
-	            		</div><br/>
-	            		<div>
-	            			Pays cible : ...
-	            		</div><br/>
-	            		<div>
-	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
-	            		</div><br/>
-	            	</div>
-	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
-            	</div>
-            	
-            	<div class="elementAssociation">
-	            	<div class="transbox">
-	            		<div>
-	            			<label>Nom Association</label>
-	            		</div><br/>
-	            		<div>
-	            			Pays cible : ...
-	            		</div><br/>
-	            		<div>
-	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
-	            		</div><br/>
-	            	</div>
-	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
-            	</div>
-            	
-            	<div class="elementAssociation">
-	            	<div class="transbox">
-	            		<div>
-	            			<label>Nom Association</label>
-	            		</div><br/>
-	            		<div>
-	            			Pays cible : ...
-	            		</div><br/>
-	            		<div>
-	            			Types de Don : Alimentaire, Fourniture, Vestimentaire
-	            		</div><br/>
-	            	</div>
-<!-- 	            	<button class="button" type="button" value="Faire un Don" /> -->
-	            	<a href="associationDetails.jsf" class="button">Faire un Don</a>
-            	</div>
             
             </div>
-
-<!--        		<h:form id="form"> pour plus de détail : https://www.primefaces.org/showcase/ui/data/dataGrid.xhtml -->
-<!-- 			    <p:dataGrid var="asso" value="#{MB.listeDesAssociations}" columns="3" layout="grid" rows="12"> value à remplir -->
-			 
-<!-- 			        <f:facet name="header"> -->
-<!-- 			            NOS ASSOCIATIONS PARTENAIRES -->
-<!-- 			        </f:facet> -->
-			 
-<!-- 			        <p:panel header="#{asso.blabla}" style="text-align:center"> header à remplir -->
-<!-- 			            <h:panelGrid columns="1" style="width:100%"> -->
-<!-- 			                <p:graphicImage name="#{asso.ImageAsso}"/> à remplir -->
-			 
-<!-- 			                <h:outputText value="#{car.year}" /> à remplir -->
-			 
-<!-- 			                <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail"> -->
-<!-- 			                    <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" /> -->
-<!-- 			                    <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" /> -->
-<!-- 			                </p:commandLink> -->
-<!-- 			            </h:panelGrid> -->
-<!-- 			        </p:panel> -->
-			 
-<!-- 			    </p:dataGrid> -->
-<!-- 			</h:form> -->
        
         </ui:define>
         
