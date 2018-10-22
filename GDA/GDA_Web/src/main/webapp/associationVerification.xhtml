@@ -80,10 +80,13 @@
 			    </p:dialog>
 			    
 			    <p:dialog header="Confirmation" widgetVar="assoDialog3" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			        
 			        <p:outputPanel id="assoDetailAccepter" style="text-align:center;">	
-			                 <h:outputText style="color:black;" value="Etes-vous sûr de vouloir d'accepter cette association dans l'application ?" /><br/> <br/>                         
-			                 <p:commandButton style="background:green;color:white;" value="Oui" actionListener="#{associationListeBean.accepterAssociation}" />
+			        <h:outputText style="color:black;" value="Etes-vous sûr de vouloir d'accepter cette association dans l'application ?" /><br/> <br/> 
+			            <h:form>                        
+			                 <p:commandButton style="background:green;color:white;" value="Oui" action="#{associationListeBean.accepterAssociation}" />
 		 					 <p:commandButton style="background:red;color:white;" value="Non" onclick="PF('assoDialog3').hide()"/>
+			        	</h:form>
 			        </p:outputPanel>
 			    </p:dialog>
 	         </h:form>

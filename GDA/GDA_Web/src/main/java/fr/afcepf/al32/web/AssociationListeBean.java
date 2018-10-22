@@ -42,7 +42,7 @@ public class AssociationListeBean {
 	    return suite;
 	}
 	
-	public String accepterAssociation(ActionEvent e)
+	public String accepterAssociation()
 	{
 		String suite=null;	
 		serviceAssociation.accepterAssociation(selectedPersonne.getId(), new Timestamp( System.currentTimeMillis()));
