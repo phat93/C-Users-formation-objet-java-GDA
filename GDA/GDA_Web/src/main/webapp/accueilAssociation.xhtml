@@ -8,7 +8,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	
 	<h:body>
-      <ui:composition template="/templates/common.xhtml">
+      <ui:composition template="/templates/commonAssociation.xhtml">
       	
       	<ui:define name="title">Associations</ui:define>
       	
@@ -49,30 +49,29 @@
 			    </p:pickList>
 			    
 			    <p:commandButton id="pojoSubmit" value="Valider le pack" update="displayThemes"
-			    oncomplete="PF('packDialog').show()" style="margin-top:5px" actionListener="#{accueilAssociationBean.sommePrixPack}"/>
+			    oncomplete="PF('packDialog').show()" style="margin-top:5px"/>
  				
  				<p:dialog modal="true" showEffect="fade" hideEffect="fade" widgetVar="packDialog">
-			        <h:panelGrid id="displayThemes" columns="1">
-			            <h:outputText value="Récapitulatif du pack :" style="font-weight:bold" />
+					<f:facet name="header">
+				        <h:outputText value="Récapitulatif du Pack: " style="font-weight:bold" />
+				    </f:facet>
+					<h:panelGrid id="displayThemes" columns="2">
 			            <ui:repeat value="#{accueilAssociationBean.produits.target}" var="asso">
-			                <h:outputText value="#{asso.libelle}" style="margin-right:5px" />
-			                <h:outputText value="#{asso.prix} €" style="margin-right:5px" />
-			                <br/>
+			                <h:outputText value="#{asso.libelle}" style="margin-right:15px" /> <br/>
+			            </ui:repeat>    
+			            <ui:repeat value="#{accueilAssociationBean.produits.target}" var="asso">    
+			                <h:outputText value="#{asso.prix} €" style="margin-left:15px" /> <br/>
 			            </ui:repeat>
-			        </h:panelGrid>
-			        <button type="button" id="updateButton" class="btn btn-primary" onclick="productUpdate();">
-					  Add
-					</button>
-					<hr/>
-					<h:commandButton value="Valider" actionListener="#{accueilAssociationBean.sommePrixPack}" />
-					<h:outputText value="#{accueilAssociationBean.prixPack}"/>
+			        
+				        <h:outputText value="Prix total : " style="margin-right:15px; font-weight:bold;" />
+				        <h:outputText value="#{accueilAssociationBean.produits.target.stream().map(asso->asso.prix).sum()} €"
+				        style="margin-left:15px; font-weight:bold;" />
+					</h:panelGrid>
+					<h:commandButton value="Valider" actionListener="#{accueilAssociationBean.creerPack}" />	
 			    </p:dialog>
- 				
             </h:form>
-
+            
         </ui:define>
-        
       </ui:composition>
    </h:body>	
-
 </html>
