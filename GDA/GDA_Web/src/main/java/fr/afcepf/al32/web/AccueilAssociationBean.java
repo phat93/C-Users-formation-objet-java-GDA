@@ -15,9 +15,9 @@ import org.primefaces.model.DualListModel;
 import fr.afcepf.al32.entity.Pack;
 import fr.afcepf.al32.entity.PackAssociation;
 import fr.afcepf.al32.entity.Produit;
-import fr.afcepf.al32.entity.TypeProduit;
 import fr.afcepf.al32.service.IServicePack;
 import fr.afcepf.al32.service.IServiceProduit;
+import fr.afcepf.al32.service.IServiceTypeProduit;
 
 @ManagedBean
 @SessionScoped
@@ -42,6 +42,9 @@ public class AccueilAssociationBean implements Serializable {
 	@ManagedProperty("#{servicePackImpl}")
 	private IServicePack servicePack;
 	
+	@ManagedProperty("#{serviceTypeProduit}")
+	private IServiceTypeProduit serviceTypeProduit;
+	
 	@PostConstruct
 	public void init() {
 		produitsSource = serviceProduit.rechercherProduitDuType(1);
@@ -51,29 +54,14 @@ public class AccueilAssociationBean implements Serializable {
 	
 	public void changerTypeProduit(ActionEvent e) {
 		produitsSource = serviceProduit.rechercherProduitDuType(idTypeProduit);
-		List<Produit> produitTarget = new ArrayList<Produit>();
-		produits = new DualListModel<Produit>(produitsSource, produitTarget);
+		produitsPack = new ArrayList<Produit>();
+		produits = new DualListModel<Produit>(produitsSource, produitsPack);
 	}
 	
-//	public void prixPack(ActionEvent e) {
-//		Double prixTotal = 0.0;
-//		
-//		prixTotal += prix;
-//	}
-	
-	public void sommePrixPack(ActionEvent e) { 
-		for(Produit p : produitsPack) { 
-			prixPack += p.getPrix();
-			System.out.println(prixPack);
-			System.out.println(p);
-		}
-    }
-	
-	public void creerPack() {
-		Pack pack = new PackAssociation();
-		pack.setLibelle(libellePack);
+	public void creerPack(ActionEvent e) {
+		Pack pack = new PackAssociation(libellePack, prixPack);
 		pack.setProduits(produitsPack);
-		pack.setPrix(prix);
+		pack.setTypeProduit(serviceTypeProduit.rechercherTypeProduit(idTypeProduit));
 		
 		servicePack.ajouterPack(pack);
 	}
@@ -116,6 +104,14 @@ public class AccueilAssociationBean implements Serializable {
 
 	public void setServicePack(IServicePack servicePack) {
 		this.servicePack = servicePack;
+	}
+
+	public IServiceTypeProduit getServiceTypeProduit() {
+		return serviceTypeProduit;
+	}
+
+	public void setServiceTypeProduit(IServiceTypeProduit serviceTypeProduit) {
+		this.serviceTypeProduit = serviceTypeProduit;
 	}
 
 	public Double getPrix() {
